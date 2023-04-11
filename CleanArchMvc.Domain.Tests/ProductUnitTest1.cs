@@ -40,7 +40,7 @@ namespace CleanArchMvc.Domain.Tests
         [Fact]
         public void CreateProduct_LongImageName_DomainExecptionLongImageName()
         {
-            Action action = () => new Product(1, "Produto", "Product Description", 9.99m, 
+            Action action = () => new Product(1, "Produto", "Product Description", 9.99m,
                 99, "Product ImageProduct ImageProduct ImageProduct ImageProduct ImageProduct ImageProduct " +
                     "Product ImageProduct ImageProduct ImageProduct ImageProduct ImageProduct Image" +
                     "Product ImageProduct ImageProduct ImageProduct ImageProduct Image" +
@@ -58,7 +58,7 @@ namespace CleanArchMvc.Domain.Tests
             Action action = () => new Product(1, "Produto", "Product Description", 9.99m, 99, null);
             action.Should()
                 .NotThrow<CleanArchMvc.Domain.Validation.DomainExceptionValidation>();
-                
+
 
         }
 
@@ -68,7 +68,6 @@ namespace CleanArchMvc.Domain.Tests
             Action action = () => new Product(1, "Produto", "Product Description", 9.99m, 99, null);
             action.Should()
                 .NotThrow<NullReferenceException>();
-
 
         }
 
@@ -88,6 +87,7 @@ namespace CleanArchMvc.Domain.Tests
                 .Throw<CleanArchMvc.Domain.Validation.DomainExceptionValidation>()
                 .WithMessage("Invalid price value.");
         }
+        
 
         [Theory]
         [InlineData(-5)]
@@ -98,6 +98,8 @@ namespace CleanArchMvc.Domain.Tests
                 .Throw<CleanArchMvc.Domain.Validation.DomainExceptionValidation>()
                 .WithMessage("Invalid stock value.");
         }
+
+
 
 
 
