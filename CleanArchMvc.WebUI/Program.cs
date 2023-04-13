@@ -21,6 +21,8 @@ namespace CleanArchMvc.WebUI
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
+
                 });
+
     }
 }
